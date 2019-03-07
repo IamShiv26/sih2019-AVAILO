@@ -1,0 +1,12 @@
+{
+    "name":"AVAIL-O",
+    "start":"/index.html",
+    "scope":".",
+    "display":"standalone",
+    "orientation":"portrait-primary",
+    "background_color":"#fff",
+    "theme_color":"#3f51b5",
+    "description":"Officer Availability WebApp",
+    "dir":"ltr",
+    "lang":"en-US"
+}

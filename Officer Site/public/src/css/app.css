@@ -1,0 +1,221 @@
+body {
+    padding: 0px 0 0;
+    background: #fafafa;
+    position: relative;
+  }
+
+a img{
+  border: 0px;
+}
+
+::-moz-selection {
+  background-color: #6ab344;
+  color: #fff;
+}
+
+::selection {
+  background-color: #6ab344;
+  color: #fff;
+}
+
+.background-logo {
+  position: relative;
+  height: 400px;
+  width: auto;
+  background-color: #f3f3f3;
+  background: url('/src/images/Avail-O.png') center 30% no-repeat;
+  background-size: cover;
+}
+.info-section{
+  font-size: 20px;
+  font-family: sans-serif;
+}
+
+.logo-font {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  line-height: 1;
+  color: #767777;
+  font-weight: 500;
+}
+.info-section{
+  padding: 0 80px;
+  max-width: 1044px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+.android-wear-section {
+  position: relative;
+  height: 200px;
+  margin-top: none;
+}
+/* back:73C2FB */
+
+.android-wear-band {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: #E0E0E0;
+
+}
+
+.android-wear-band-text {
+  max-width: 800px;
+  margin-left: 25%;
+  padding: 24px;
+  text-align: left;
+  color: black;
+  font-weight: bold;
+}
+
+  .android-wear-band-text p {
+    padding-top: 0px;
+  }
+
+.creator_cards {
+  padding: 40px 0;
+  max-width: 1044px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+  .creator_cards .creator-title {
+    margin-left: 12px;
+    padding-bottom: 24px;
+  }
+
+.avail-card-container {
+}
+
+  .avail-card-container .mdl-card__media {
+    overflow: hidden;
+    background: transparent;
+  }
+
+    .avail-card-container .mdl-card__media img {
+      width: 100%;
+    }
+
+  .avail-card-container .mdl-card__title {
+    background: transparent;
+    height: auto;
+  }
+
+  .avail-card-container .mdl-card__title-text {
+    color: black;
+    height: auto;
+  }
+
+  .avail-card-container .mdl-card__supporting-text {
+    height: auto;
+    color: black;
+    padding-bottom: 56px;
+  }
+
+  .avail-card-container .mdl-card__actions {
+    position: absolute;
+    bottom: 0;
+  }
+
+  .avail-card-container .mdl-card__actions a {
+    border-top: none;
+    font-size: 16px;
+  }
+
+/**** Mobile layout ****/
+@media (max-width: 900px) {
+  .android-navigation-container {
+    display: none;
+  }
+
+  .android-title {
+    display: none !important;
+  }
+
+  .background-logo{
+    height: 350px;
+  }
+
+}
+
+  
+
+table{
+  width:100%;
+}
+
+#table_container{
+  padding:10px 200px;
+  background-color: azure;
+
+}
+
+
+table, th, td,caption {
+border: 1px solid #ddd;
+margin: 10px;
+}
+a{
+color: blue;
+}
+
+th{
+font-size: 15px;
+}
+
+td{
+text-align:center;
+}
+
+.table-responsive {
+min-height: .01%;
+overflow-x: auto;
+}
+@media screen and (max-width: 767px) {
+.table-responsive {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-y: hidden;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid #ddd;
+}
+.table-responsive > .table {
+    margin-bottom: 0;
+}
+.table-responsive > .table > thead > tr > th,
+.table-responsive > .table > tbody > tr > th,
+.table-responsive > .table > tfoot > tr > th,
+.table-responsive > .table > thead > tr > td,
+.table-responsive > .table > tbody > tr > td,
+.table-responsive > .table > tfoot > tr > td {
+    white-space: nowrap;
+}
+.table-responsive > .table-bordered {
+    border: 0;
+}
+.table-responsive > .table-bordered > thead > tr > th:first-child,
+.table-responsive > .table-bordered > tbody > tr > th:first-child,
+.table-responsive > .table-bordered > tfoot > tr > th:first-child,
+.table-responsive > .table-bordered > thead > tr > td:first-child,
+.table-responsive > .table-bordered > tbody > tr > td:first-child,
+.table-responsive > .table-bordered > tfoot > tr > td:first-child {
+    border-left: 0;
+}
+.table-responsive > .table-bordered > thead > tr > th:last-child,
+.table-responsive > .table-bordered > tbody > tr > th:last-child,
+.table-responsive > .table-bordered > tfoot > tr > th:last-child,
+.table-responsive > .table-bordered > thead > tr > td:last-child,
+.table-responsive > .table-bordered > tbody > tr > td:last-child,
+.table-responsive > .table-bordered > tfoot > tr > td:last-child {
+    border-right: 0;
+}
+.table-responsive > .table-bordered > tbody > tr:last-child > th,
+.table-responsive > .table-bordered > tfoot > tr:last-child > th,
+.table-responsive > .table-bordered > tbody > tr:last-child > td,
+.table-responsive > .table-bordered > tfoot > tr:last-child > td {
+    border-bottom: 0;
+}
+}
+

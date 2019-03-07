@@ -1,0 +1,8 @@
+.login-card {
+	max-width: 500px;
+  margin: auto;
+}
+.mdl-layout__content {
+	padding: 24px;
+	flex: none;
+}

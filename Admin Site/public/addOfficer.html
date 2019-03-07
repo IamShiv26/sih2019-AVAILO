@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>AVAIL-O</title>
+  
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.indigo-pink.min.css">
+  <link rel="stylesheet" href="./src/css/app.css">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-tile" content="PictureIt!">
+  <meta name="msapplication-TitleColor" content="#fff">
+  <meta name="theme-color" content="#3f51b5">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="./src/css/addOfficer.css" rel="stylesheet"/>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABPbaU11DPf0IaP5tK7EUSzECqkoCNQfs&callback=initMap">
+    </script>
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <!-- add your api key here -->
+    
+</head>
+<body>
+    
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <span class="mdl-layout-title">AVAIL-O</span>
+          <!-- Add spacer, to align navigation to the right -->
+          <div class="mdl-layout-spacer"></div>
+          <!-- Navigation. We hide it in small screens. -->
+          <nav class="mdl-navigation mdl-layout--large-screen-only">
+            <a class="mdl-navigation__link" href="./index.html">Home</a>
+            <a class="mdl-navigation__link" href="./addOfficer.html">Add Officers</a>
+            <a class="mdl-navigation__link" href="">About</a>
+          </nav>
+          <form action="#">
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                  <label class="mdl-button mdl-js-button mdl-button--icon" for="site-search">
+                          <i class="material-icons">Search</i>
+                      </label>
+                      <div class="mdl-textfield__expandable-holder">
+                          <input class="mdl-textfield__input" type="search" id="site-search" />
+                          <label class="mdl-textfield__label" for="site-search">Search</label>
+                      </div>
+                  </div>
+          </form>
+        </div>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">AVAIL-O</span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="./index.html">Home</a>
+          <a class="mdl-navigation__link" href="./addOfficer.html">Add Officers</a>
+          <a class="mdl-navigation__link" href="">About</a>
+        </nav>
+      </div>
+    <div class="container">
+        <form id="postForm">
+            <div class="wizards">
+                <div class="progressbar">
+                    <div class="progress-line" data-now-value="12.11" data-number-of-steps="5" style="width: 12.11%;"></div> <!-- 19.66% -->
+                </div>
+                <div class="form-wizard active">
+                    <div class="wizard-icon"><i class="fa fa-map-marker"></i></div>
+                    <p>Office Location</p>
+                </div>
+                <div class="form-wizard">
+                    <div class="wizard-icon"><i class="fa fa-user"></i></div>
+                    <p>About</p>
+                </div>
+                <div class="form-wizard">
+                    <div class="wizard-icon"><i class="fa fa-key"></i></div>
+                    <p>Account</p>
+                </div>
+                <div class="form-wizard">
+                    <div class="wizard-icon"><i class="fa fa-globe"></i></div>
+                    <p>Website</p>
+                </div>
+                <div class="form-wizard">
+                    <div class="wizard-icon"><i class="fa fa-check-circle"></i></div>
+                    <p>Finish</p>
+                </div>
+            </div>
+            <fieldset>
+                
+            
+                <input type="text" id="user_location" name="user_location" class="register-form__location-holder"> <a href="#" class="button button--small register-wizard__map-search-button">Search adr.</a>
+                <div style="width:100%;height:300px" id="register-form__map" class="register-form__map register-form__map--user"></div>
+                lat: <input id="latitude" name="user_latitude" value="" class="register-form__latitude-holder">
+                long: <input id="longitude" name="user_longitude" value="" class="register-form__longitude-holder">
+            
+
+
+                <label class="form-check-label">
+                    <input class="" type="checkbox" value="yes"> Mark this location
+                </label>
+                <div class="wizard-buttons">
+                    <button type="button" class="btn btn-next">Next</button>
+                </div>
+            </fieldset>
+<fieldset>
+                <h4>Input personal data</h4>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input id="name" type="text" name="name" class="form-control" placeholder="First Middle Last"/>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input id="number" type="tel" name="phone" class="form-control" placeholder="office-no"/>
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <textarea id = "address" name="address" class="form-control" placeholder="address"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Designation</label>
+                    <input type="text" name="designation" id="designation" class="form-control" placeholder="abc@aicte.org"/>
+                </div>
+                <div class="wizard-buttons">
+                    <button type="button" class="btn btn-previous">Previous</button>
+                    <button type="button" class="btn btn-next">Next</button>
+                </div>
+            </fieldset>
+            <fieldset>
+                <h4>Input account info</h4>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="abc@aicte.org"/>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="password"/>
+                </div>
+                <div class="wizard-buttons">
+                    <button type="button" class="btn btn-previous">Previous</button>
+                    <button type="button" class="btn btn-next">Next</button>
+                </div>
+            </fieldset>
+            <fieldset>
+                    <h4>Input officer info</h4>
+                    <div class="form-group">
+                        <label>Department</label>
+                        <input id="department" type="text" name="title" class="form-control" placeholder="Department"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Job description</label>
+                        <textarea id="description" name="description" class="form-control" placeholder="Areas of work... "></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Extension</label>
+                        <input id="phoneExtension" type="text" name="sites" class="form-control" placeholder="Phone Extension"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Working Hours</label>
+<!--                         <input type="text"  placeholder="Category website"/> -->
+                        Select start time: <input id="startTime" type="time" name="category" class="form-control" name="usr_time">
+                        Select start time: <input id="endTime" type="time" name="category" class="form-control" name="usr_time">
+                    </div>
+                <div class="wizard-buttons">
+                    <button type="button" class="btn btn-previous">Previous</button>
+                    <button type="button" class="btn btn-next">Next</button>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="jumbotron text-center">
+                <h1>Please click submit button to save your data</h1>
+                </div>
+                <div class="wizard-buttons">
+                    <button type="button" class="btn btn-previous">Previous</button>
+                    <button type="submit" name="save" class="btn btn-primary btn-submit" id="submit">Submit</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+
+    <script defer src="./src/js/material.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="./src/js/addOfficer.js"></script>
+
+
+<!-- map script -->
+
+<script>
+        
+    $(document).ready(async function($) {
+    initMap();
+    });
+
+        let lat, long;
+        // init map 28.5358315,77.1544826
+        function initMap() {    
+        //  lat = 28.5358315;
+        //  long = 77.1544826;
+        // $('.register-form__latitude-holder').val(lat);
+        // $('.register-form__longitude-holder').val(long);
+        //   var center = new google.maps.LatLng(parseFloat(lat), long);
+        //     var mapOptions = {center: center, zoom: 16, scrollwheel: false};
+        //     map = new google.maps.Map(document.getElementById("register-form__map"), mapOptions);
+        //     marker = new google.maps.Marker({position: new google.maps.LatLng(lat, long), draggable:true, map: map,title: 'Test'});
+        //         google.maps.event.addListener(marker, 'dragend', function (event) {
+        //             lat = this.getPosition().lat();
+        //             long = this.getPosition().lng();
+        //             // initMap(lat, long);
+        //             console.log('dragged pointer');
+        //             $('.register-form__latitude-holder').val(lat);
+        //             $('.register-form__longitude-holder').val(long);
+        //         });     
+        //     }
+        // /**
+        //  * Geocode when user location input changes
+        //  */
+        // $('body').on('change', '.register-form__location-holder', function(e) {
+        //     var address = $(this).val();
+        //     console.log(address);
+        //     var geocoder = new google.maps.Geocoder();
+        //     if (geocoder) {
+        //         geocoder.geocode({ 'address': address }, function (results, status) {
+        //             if (status == google.maps.GeocoderStatus.OK) {
+        //                 console.log(results[0].geometry.location);
+        //                 lat = results[0].geometry.location.lat();
+        //                 long = results[0].geometry.location.lng();
+        //                 var center = new google.maps.LatLng(parseFloat(lat), long);
+        //                 var mapOptions = {center: center, zoom: 16, scrollwheel: false};
+        //                 map = new google.maps.Map(document.getElementById("register-form__map"), mapOptions);
+        //                 marker = new google.maps.Marker({position: new google.maps.LatLng(lat, long), draggable:true, map: map,title: 'Test'});
+        //                 console.log("lat="+lat);
+        //                 console.log("long=" + long);
+        //                 google.maps.event.addListener(marker, 'dragend', function (event) {
+        //                     lat = this.getPosition().lat();
+        //                     long = this.getPosition().lng();
+        //                     // initMap(lat, long);
+        //                     console.log('dragged pointer');
+        //                     $('.register-form__latitude-holder').val(lat);
+        //                     $('.register-form__longitude-holder').val(long);
+        //                 });     
+        //                 //initMap(lat, long);
+        //                 $('.register-form__latitude-holder').val(lat);
+        //                 $('.register-form__longitude-holder').val(long);
+        //             }
+        //             else {
+        //                 alert("Kunne ikke finne denne adressen, vennligst skriv en i nærheten og dra pin'en på kartet nærmest mulig riktig posisjon.");
+        //                 $('.register-form__latitude-holder').focus().select();
+        //             }
+        //         });
+        //     }
+        // });
+                                
+         // lat = $('.register-form__latitude-holder').val();
+         // long = $('.register-form__longitude-holder').val();
+         lat = 28.5358315;
+         long = 77.1544826;
+          $('.register-form__latitude-holder').val(lat);
+                    $('.register-form__longitude-holder').val(long);
+         var center = new google.maps.LatLng(parseFloat(lat), long);
+            var mapOptions = {center: center, zoom: 16, scrollwheel: false};
+            map = new google.maps.Map(document.getElementById("register-form__map"), mapOptions);
+            marker = new google.maps.Marker({position: new google.maps.LatLng(lat, long), draggable:true, map: map,title: 'Test'});
+                google.maps.event.addListener(marker, 'dragend', function (event) {
+                    lat = this.getPosition().lat();
+                    long = this.getPosition().lng();
+                    // initMap(lat, long);
+                    console.log('dragged pointer');
+                    $('.register-form__latitude-holder').val(lat);
+                    $('.register-form__longitude-holder').val(long);
+                });     
+         }
+            
+                
+          navigator.geolocation.getCurrentPosition(position=>{
+                    // console.log("hi");
+                    lat = position.coords.latitude;
+                    long = position.coords.longitude;
+                    $('.register-form__latitude-holder').val(lat);
+                    $('.register-form__longitude-holder').val(long);
+                    console.log(lat,long);
+                    var center = new google.maps.LatLng(parseFloat(lat), long);
+            var mapOptions = {center: center, zoom: 16, scrollwheel: false};
+                    map = new google.maps.Map(document.getElementById("register-form__map"), mapOptions);
+            marker = new google.maps.Marker({position: new google.maps.LatLng(lat, long), draggable:true, map: map,title: 'Test'});
+                google.maps.event.addListener(marker, 'dragend', function (event) {
+                    lat = this.getPosition().lat();
+                    long = this.getPosition().lng();
+                    // initMap(lat, long);
+                    console.log('dragged pointer');
+                    $('.register-form__latitude-holder').val(lat);
+                    $('.register-form__longitude-holder').val(long);
+                });     
+                    $('body').on('change', '.register-form__location-holder', function(e) {
+            var address = $(this).val();
+            console.log(address);
+            var geocoder = new google.maps.Geocoder();
+            if (geocoder) {
+                geocoder.geocode({ 'address': address }, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        console.log(results[0].geometry.location);
+                        lat = results[0].geometry.location.lat();
+                        long = results[0].geometry.location.lng();
+                        var center = new google.maps.LatLng(parseFloat(lat), long);
+                        var mapOptions = {center: center, zoom: 16, scrollwheel: false};
+                        map = new google.maps.Map(document.getElementById("register-form__map"), mapOptions);
+                        marker = new google.maps.Marker({position: new google.maps.LatLng(lat, long), draggable:true, map: map,title: 'Test'});
+                        console.log("lat="+lat);
+                        console.log("long=" + long);
+                        google.maps.event.addListener(marker, 'dragend', function (event) {
+                            lat = this.getPosition().lat();
+                            long = this.getPosition().lng();
+                            // initMap(lat, long);
+                            console.log('dragged pointer');
+                            $('.register-form__latitude-holder').val(lat);
+                            $('.register-form__longitude-holder').val(long);
+                        });     
+                        //initMap(lat, long);
+                        $('.register-form__latitude-holder').val(lat);
+                        $('.register-form__longitude-holder').val(long);
+                    }
+                    else {
+                        alert("Kunne ikke finne denne adressen, vennligst skriv en i nærheten og dra pin'en på kartet nærmest mulig riktig posisjon.");
+                        $('.register-form__latitude-holder').focus().select();
+                    }
+                });
+            }
+        });
+                                
+         lat = $('.register-form__latitude-holder').val();
+         long = $('.register-form__longitude-holder').val();
+                    
+                },error=>{
+                    console.log(error.code);
+                },{timeout:10000});
+            
+                
+    </script>
+
+    <script type="text/javascript" src="./src/js/addOfficerpost.js"></script>
+
+ </body>   
+
+</html>
+
+
